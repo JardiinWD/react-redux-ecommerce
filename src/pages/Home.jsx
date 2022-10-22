@@ -1,18 +1,38 @@
-import React, {Fragment} from "react"; // React Import
+import React, {Fragment, useState, useEffect} from "react"; // React Import
 import Helmet from "../components/Helmet/Helmet"; // Helmet component' import
 import { Container, Row, Col } from "reactstrap"; // Reactstrap import
+import { Link } from "react-router-dom"; // Link Routing
+import {motion} from 'framer-motion' // Import framer Motion
 import classes from '../styles/Home.module.scss' // Stylesheet classes'
 import heroImg from '../assets/images/hero-img.png' // Hero Image
-import { Link } from "react-router-dom"; // Link Routing
-import {motion} from 'framer-motion'
+//////
+// Components // 
 import Services from "../services/Services";
 import ProductList from "../components/UI/ProductList";
-
+//////
+// Data import //
+import products from '../assets/data/products'
 
 const Home = () => {
    // Const year
    const year = new Date().getFullYear()
-   
+   ///////
+   // useState //
+   const [data, setData] = useState(products)
+   console.log(data);
+
+   ///////
+   // useEffect //
+   const dataCallbackFn = () => {
+      // Verify the products filtered by chair keyword
+      const filteredProducts = products.filter(item => item.category === 'chair')
+      // Setting state of Data on filteredProducts
+      setData(filteredProducts)
+   }
+   useEffect(dataCallbackFn, [])
+
+   ///////
+   // Component Return //
    return (
       /* Intestazione */
       <Fragment>
@@ -65,7 +85,9 @@ const Home = () => {
                         <h2 className={classes.section_title}>Trending Products</h2>
                      </Col>
                      {/* ProductList */}
-                     <ProductList />
+                     {/* Passing data through Props */}
+                     {/* At the moment the current state of data is filtered with the keyword Chair */}
+                     <ProductList data={data} />
                   </Row>
                </Container>
             </section>
