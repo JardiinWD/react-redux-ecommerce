@@ -79,6 +79,7 @@
     $store_btn_bg : #fff;
     $store_btn_fw : 600;
     $store_btn_c : var(--primary-color);
+    $store_btn_fs: 1rem;
     ////////
     background: $timer_count_bg;
     height: $timer_count_height;
@@ -107,9 +108,16 @@
     }
     /* store_btn */
     .store_btn {
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 8px 20px;
+        margin-top: 20px;
         background: $store_btn_bg;
         color: $store_btn_c;
         font-weight: $store_btn_fw;
+        font-size: $store_btn_fs;
         /* Link Component */
         a:hover {
             color: var(--primary-color);

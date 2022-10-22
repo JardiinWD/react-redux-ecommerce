@@ -1,0 +1,22 @@
+.clock_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    /* clock_data */
+    .clock_data {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        /* clock_data_h1 */
+        .clock_data_h1 {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        /* clock_data_h5 */
+        .clock_data_h5 {
+            color: white;
+            font-size: 1rem;
+        }
+    }
+}
