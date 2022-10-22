@@ -1,11 +1,30 @@
 import React from "react"; // React import
 import { NavLink } from "react-router-dom"; // Navlink' import
-import classes from "./Header.module.css"; // Header' stylesheet
+import classes from "./Header.module.scss"; // Header' stylesheet
 import { Container, Row } from "reactstrap"; // Import components from Reactstrap
 import logo from "../../assets/images/eco-logo.png"; // Import Logo
 import userIcon from "../../assets/images/user-icon.png"; // Import Logo
 
 const Header = () => {
+   // Navlinks Array with dynamic path / key
+   const nav_links = [
+      {
+         path: "home",
+         display: "Home",
+         id: "home",
+      },
+      {
+         path: "shop",
+         display: "Shop",
+         id: "shop",
+      },
+      {
+         path: "cart",
+         display: "Cart",
+         id: "cart",
+      },
+   ];
+
    return (
       /* header */
       <div className={classes.header}>
@@ -18,27 +37,24 @@ const Header = () => {
                   {/* classes.logo */}
                   <div className={classes.logo}>
                      <img src={logo} alt="Logo" />
-                     <div>
-                        <h1>E-commerce</h1>
-                        <p>Since 1995</p>
-                     </div>
+                     <h1>E-commerce</h1>
                   </div>
                   {/* classes.navigation */}
                   <div className={classes.navigation}>
                      {/* classes.menu */}
                      <ul className={classes.menu}>
-                        {/* classes.nav_item | home */}
-                        <li className={classes.nav_item}>
-                           <NavLink to="home"> Home </NavLink>
-                        </li>
-                        {/* classes.nav_item | shop */}
-                        <li className={classes.nav_item}>
-                           <NavLink to="shop"> Shop </NavLink>
-                        </li>
-                        {/* classes.nav_item | cart */}
-                        <li className={classes.nav_item}>
-                           <NavLink to="cart"> Cart </NavLink>
-                        </li>
+                        {/* Map operation for array of links_item */}
+                        {nav_links.map((item) => { 
+                           return (
+                              /* classes.nav_item | home */
+                              <li key={item.id} className={classes.nav_item}>
+                                 {/* Active links classes */}
+                                 <NavLink className={(navClass) => navClass.isActive ? "nav_active" : ""} to={item.path}>
+                                    {item.display}
+                                 </NavLink>
+                              </li>
+                           );
+                        })}
                      </ul>
                   </div>
                   {/* classes.nav_icons */}
