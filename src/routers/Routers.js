@@ -1,5 +1,6 @@
 import React from 'react'
-//Import delle mie pagine
+import { Routes, Route } from 'react-router-dom'
+// My pages' import
 import Home from '../pages/Home'
 import Cart from '../pages/Cart'
 import Checkout from '../pages/Checkout'
@@ -10,7 +11,22 @@ import Signup from '../pages/Signup'
 
 const Router = () => {
     return (
-        <div>Router</div>
+        <Routes>
+            {/* Home */}
+            <Route path='home' element={<Home />} />
+            {/* Shop */}
+            <Route path='shop' element={<Shop />} />
+            {/* Shop con ID singolo */}
+            <Route path='shop/:id' element={<ProductDetail />} />
+            {/* Cart */}
+            <Route path='cart' element={<Cart />} />
+            {/* Checkout */}
+            <Route path='checkout' element={<Checkout />} />
+            {/* Login */}
+            <Route path='login' element={<Login />} />
+            {/* Signup */}
+            <Route path='signup' element={<Signup />} />
+        </Routes>
     )
 }
 
