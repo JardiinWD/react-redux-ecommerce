@@ -4,6 +4,8 @@ import classes from "./Header.module.scss"; // Header' stylesheet
 import { Container, Row } from "reactstrap"; // Import components from Reactstrap
 import logo from "../../assets/images/eco-logo.png"; // Import Logo
 import userIcon from "../../assets/images/user-icon.png"; // Import Logo
+import {motion} from "framer-motion"
+
 
 const Header = () => {
    // Navlinks Array with dynamic path / key
@@ -62,14 +64,16 @@ const Header = () => {
                      {/* ri-heart-line */}
                      <span className={classes.fav_icon}>
                         <i className="ri-heart-line"></i>
+                        <span className={classes.badge}>1</span>
                      </span>
                      {/* ri-shopping-bag-line */}
                      <span className={classes.cart_icon}>
                         <i className="ri-shopping-bag-line"></i>
+                        <span className={classes.badge}>1</span>
                      </span>
-                     {/*  */}
+                     {/* Altered img by Motion library */}
                      <span>
-                        <img src={userIcon} alt="User Icon" />
+                        <motion.img whileTap={{scale:1.2}} src={userIcon} alt="User Icon" />
                      </span>
                   </div>
                   {/* classes.mobile_menu */}

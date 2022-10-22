@@ -57,11 +57,39 @@ $logo_img_height: 1.5rem;
          display: flex;
          align-items: center;
          column-gap: 1.2rem;
-         /* Span i  */
-         span i {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            cursor: pointer;
+          /* cart_icon | fav_icon */
+         span.cart_icon, 
+         span.fav_icon {
+            position: relative;
+            /* Icons */
+            i {
+               font-size: 1.4rem;
+               color: var(--primary-color);
+               cursor: pointer;
+            }
+            /* badge */
+            .badge {
+               /* Style */
+               width: 15px;
+               height: 15px;
+               font-size: 0.8rem;
+               font-weight: 600;
+               border-radius: 50%;
+               /* Display Transition  */
+               position: absolute;
+               top: 25%;
+               left: 50%;
+               transform: translate(-25%, 0%);
+               content: '';
+               z-index: 10;
+               /* Display Style Color */
+               background: var(--primary-color);
+               color: #fff;
+               /* Display Property */
+               display: flex;
+               justify-content: center;
+               align-items: center;
+            }
          }
          /* span img */
          span img {
