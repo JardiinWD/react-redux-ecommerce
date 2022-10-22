@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 // My pages' import
 import Home from '../pages/Home'
 import Cart from '../pages/Cart'
@@ -9,9 +9,11 @@ import ProductDetail from '../pages/ProductDetail'
 import Shop from '../pages/Shop'
 import Signup from '../pages/Signup'
 
-const Router = () => {
+const Routers = () => {
     return (
         <Routes>
+            {/* Redirect to the home page */}
+            <Route path='/' element={<Navigate to='home' />} />
             {/* Home */}
             <Route path='home' element={<Home />} />
             {/* Shop */}
@@ -30,4 +32,4 @@ const Router = () => {
     )
 }
 
-export default Router
+export default Routers

@@ -1,7 +1,10 @@
 import "./App.css";
+// My Layout' component
+import Layout from './components/Layout/Layout'
+
 
 function App() {
-  return <h1>hello world</h1>;
+  return <Layout />;
 }
 
 export default App;
