@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const ProductCard = ({item}) => {
   return (
     /* lg='3' md='4' */
-    <Col key={item.id} lg='3' md='4'>
+    <Col key={item.id} lg='3' md='4' className='mb-2'>
         {/* classes.product_item */ }
         <div className={classes.product_item}>
             {/* classes.product_img */}

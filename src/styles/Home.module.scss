@@ -1,18 +1,19 @@
 ////////////////
-// Variables
-$hero_content_p_c : var(--primary-color);
-$hero_content_h2_c : var(--primary-color);
-$hero_content_h2_fs : 2.5rem;
-$hero_content_h2_fw : 600;
-$hero_buy_btn_bg : var(--primary-color);
-$hero_buy_btn_c : #fff;
-$hero_buy_btn_fs: 1rem;
+
 
 ////////////////
 // Stylesheet rules
 
 /* Hero Section */
 .hero_section {
+    // Variables
+    $hero_content_p_c : var(--primary-color);
+    $hero_content_h2_c : var(--primary-color);
+    $hero_content_h2_fs : 2.5rem;
+    $hero_content_h2_fw : 600;
+    $hero_buy_btn_bg : var(--primary-color);
+    $hero_buy_btn_c : #fff;
+    $hero_buy_btn_fs: 1rem;
     background: var(--hero-bg);
     /* hero_content */
     .hero_content {
@@ -53,8 +54,65 @@ $hero_buy_btn_fs: 1rem;
         
     }
 }
-
 /* trending_products */
 .trending_products {
     
+}
+/* trending_products */
+.best_sales {
+
+}
+/* timer_count */
+.timer_count {
+    ////////
+    // Variable
+    $timer_count_bg : var(--primary-color);
+    $timer_count_height : 300px;
+    $ctc_h4_c :  #fff;
+    $ctc_h4_fs :  1.2rem;
+    $ctc_h4_fw :  500;  
+    $ctc_h3_c :  #fff;
+    $ctc_h3_fs :  1.6rem;
+    $ctc_h3_fw :  600;    
+    $timer_count_img_w : 70% !important;
+    $timer_count_img_h : 70% !important;   
+    $store_btn_bg : #fff;
+    $store_btn_fw : 600;
+    $store_btn_c : var(--primary-color);
+    ////////
+    background: $timer_count_bg;
+    height: $timer_count_height;
+    /* clock_top_content */
+    .clock_top_content {
+        /* h4 */
+        h4 {
+            color: $ctc_h4_c;
+            font-size: $ctc_h4_fs;
+            font-weight: $ctc_h4_fw;
+            margin-bottom: 1rem;
+        }
+        /* h3 */
+        h3 {
+            color: $ctc_h3_c;
+            font-size: $ctc_h3_fs;
+            font-weight: $ctc_h3_fw;
+            margin-bottom: 1.5rem;
+        }
+    }
+    /* Img */
+    img {
+        width: $timer_count_img_w;
+        height: $timer_count_img_h;
+        object-fit: contain;
+    }
+    /* store_btn */
+    .store_btn {
+        background: $store_btn_bg;
+        color: $store_btn_c;
+        font-weight: $store_btn_fw;
+        /* Link Component */
+        a:hover {
+            color: var(--primary-color);
+        }
+    }
 }

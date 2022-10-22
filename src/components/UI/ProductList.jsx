@@ -9,7 +9,7 @@ const ProductList = ({data}) => {
     /* So it goes through components like this => Home > ProductList > ProductCard */
     <Fragment> 
       {
-        data.map((item, index) => <ProductCard key={index} item={item} />)
+        data?.map((item, index) => <ProductCard key={index} item={item} />)
       }
     </Fragment>
   )
