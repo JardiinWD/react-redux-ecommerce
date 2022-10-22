@@ -1,0 +1,55 @@
+////////////////
+// Variables
+$hero_content_p_c : var(--primary-color);
+$hero_content_h2_c : var(--primary-color);
+$hero_content_h2_fs : 2.5rem;
+$hero_content_h2_fw : 600;
+$hero_buy_btn_bg : var(--primary-color);
+$hero_buy_btn_c : #fff;
+$hero_buy_btn_fs: 1rem;
+
+////////////////
+// Stylesheet rules
+
+/* Hero Section */
+.hero_section {
+    background: var(--hero-bg);
+    /* hero_content */
+    .hero_content {
+        padding-top: 45px;
+        /* H2 */
+        h2 {
+            color: $hero_content_h2_c;
+            font-size: $hero_content_h2_fs;
+            font-weight: $hero_content_h2_fw;
+            margin: 20px 0px;
+        }
+        /* P / hero_subtitle */
+        p, .hero_subtitle {
+            color: $hero_content_p_c;
+            line-height: 28px;
+        }
+        & p:nth-child(1) {
+            font-weight: 500;
+        }
+        /* buy_btn */
+        .buy_btn {
+            border: none;
+            outline: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            background: $hero_buy_btn_bg;
+            color: $hero_buy_btn_c;
+            cursor: pointer;
+            font-size: $hero_buy_btn_fs;
+            margin-top: 30px;
+            & a:hover {
+                color: $hero_buy_btn_c;
+            }
+        }
+    }
+    /* hero_img */
+    .hero_img {
+        
+    }
+}
