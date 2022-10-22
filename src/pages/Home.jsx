@@ -5,6 +5,8 @@ import classes from '../styles/Home.module.scss' // Stylesheet classes'
 import heroImg from '../assets/images/hero-img.png' // Hero Image
 import { Link } from "react-router-dom"; // Link Routing
 import {motion} from 'framer-motion'
+import Services from "../services/Services";
+
 
 
 const Home = () => {
@@ -49,6 +51,8 @@ const Home = () => {
                   </Row>
                </Container>
             </section>
+            {/* Services */}
+            <Services />
          </Helmet>
       </Fragment>
    );

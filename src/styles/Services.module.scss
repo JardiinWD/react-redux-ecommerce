@@ -1,0 +1,40 @@
+// Variables
+$service_item_truck_fs : 2.2rem;
+$service_item_truck_bg : var(--primary-color);
+$service_item_truck_c : #fff;
+$service_item_h3_c : var(--primary-color);
+$service_item_h3_fs : 1.1rem;
+
+.services {
+    column-gap: 0.7rem;
+    /* service_item */
+    .service_item {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        column-gap: 0.7rem;
+        border-radius: 5px;
+        cursor: pointer;
+        /* span i */
+        span i {
+            font-size: $service_item_truck_fs;
+            background: $service_item_truck_bg;
+            padding: 10px;
+            border-radius: 50px;
+            color: $service_item_truck_c;
+            font-weight: 400 !important;
+        }
+        /* H3 */
+        h3 {
+            color: $service_item_h3_c;
+            font-size: $service_item_h3_fs;
+            font-weight: 600;
+        }
+        /* P */
+        p {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            color: #222;
+        }
+    }
+}
