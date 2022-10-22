@@ -6,7 +6,7 @@ import heroImg from '../assets/images/hero-img.png' // Hero Image
 import { Link } from "react-router-dom"; // Link Routing
 import {motion} from 'framer-motion'
 import Services from "../services/Services";
-
+import ProductList from "../components/UI/ProductList";
 
 
 const Home = () => {
@@ -53,6 +53,22 @@ const Home = () => {
             </section>
             {/* Services */}
             <Services />
+            {/* classes.trending_products */}
+            <section className={classes.trending_products}>
+               {/* Container */}
+               <Container>
+                  {/* Row */}
+                  <Row>
+                     {/* Col lg=12 */}
+                     <Col lg='12' className="text-center">
+                        {/* classes.section_title */}
+                        <h2 className={classes.section_title}>Trending Products</h2>
+                     </Col>
+                     {/* ProductList */}
+                     <ProductList />
+                  </Row>
+               </Container>
+            </section>
          </Helmet>
       </Fragment>
    );

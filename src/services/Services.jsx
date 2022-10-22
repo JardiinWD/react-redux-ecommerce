@@ -20,7 +20,7 @@ const Services = () => {
                                 /* lg='3' md='4' */
                                 <Col key={index} lg='3' md='4'>
                                     {/* classes.service_item */}
-                                    <div style={{background: `${service.bg}`}} className={classes.service_item}>
+                                    <motion.div whileHover={{scale: 1.1}} style={{background: `${service.bg}`}} className={classes.service_item}>
                                         {/* ri-truck-line */}
                                         <span> 
                                             <i className={service.icon}></i>
@@ -30,7 +30,7 @@ const Services = () => {
                                             <h3>{service.title}</h3>
                                             <p>{service.subtitle}</p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 </Col>
                             )
                         })
