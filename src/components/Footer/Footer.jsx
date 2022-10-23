@@ -1,10 +1,46 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import classes from "./Footer.module.scss" // Stylesheet import
-import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap"; // Components import from Reactstrap
-import { Link } from "react-router-dom"; // Link component from React-router-dom
-import Logo from "../UI/Logo"; // Logo Component
+import { Container, Row} from "reactstrap"; // Components import from Reactstrap
+import CategoriesLinks from "./CategoriesLinks";
+import UsefulFooterLinks from "./UsefulFooterLinks";
+import ContactsLinks from "./ContactsLinks";
+//////
+import contactLinks from '../../assets/data/contactLinks' //  Arrays of data
+import categoryLinks from '../../assets/data/categoryLinks' //  Arrays of data
+import UsefulLinks from '../../assets/data/UsefulLinks' //  Arrays of data
+
+
 
 const Footer = () => {
+
+   ////////////
+   // useState for Links //
+   const [category, setCategory] = useState([])
+   const [usefulLinks, setusefulLinks] = useState([])
+   const [contacts, setContacts] = useState([])
+
+   ////////////
+   // useEffect for Links //
+   const footerLinksCallbackFn = () => {
+      // My Bouncing Function with a timeout
+      const bouncingFn = setTimeout(() => {
+         const filteredCategoryLinks = categoryLinks
+         const filteredUsefulLinks = UsefulLinks
+         const filteredContactsLinks = contactLinks
+         // Updated my Category Links state
+         setCategory(filteredCategoryLinks)
+         // Updated my useFul Links state
+         setusefulLinks(filteredUsefulLinks)
+         // Updated my Category Links state
+         setContacts(filteredContactsLinks)
+      }, 500)
+      // Cleanup Function
+      return () => {clearTimeout(bouncingFn)}
+   }
+   useEffect(footerLinksCallbackFn, 
+      [setCategory, setusefulLinks, setContacts, usefulLinks]
+   )
+
    return (
       <Fragment>
          {/* classes.footer */}
@@ -13,90 +49,10 @@ const Footer = () => {
             <Container>
                {/* Row */}
                <Row className="justify-content-between">
-                  {/* //FIXME: Create a new Components and map the links with props methods */}
-                  {/* lg='3' */}
-                  <Col lg='3'>
-                     {/* footer_quick_links */}
-                     <div className={classes.footer_quick_links}>
-                        {/* classes.quick_link_title */}
-                        <h4 className={classes.quick_link_title}>Top Categories</h4>
-                        {/* ListGroup */}
-                        <ListGroup className="mb-3">
-                           {/* Mobile Phones */}
-                           <ListGroupItem className="ps-0 border-0">
-                              <Link to='#'>Mobile Phones</Link>
-                           </ListGroupItem>
-                           {/* Modern Sofa */}
-                           <ListGroupItem className="ps-0 border-0">
-                              <Link to='#'>Modern Sofa</Link>
-                           </ListGroupItem>
-                           {/* Arm Chair */}
-                           <ListGroupItem className="ps-0 border-0">
-                              <Link to='#'>Arm Chair</Link>
-                           </ListGroupItem>
-                           {/* Smart Watches */}
-                           <ListGroupItem className="ps-0 border-0">
-                              <Link to='#'>Smart Watches</Link>
-                           </ListGroupItem>                           
-
-                        </ListGroup>
-                     </div>
-                  </Col>
-                  {/* //FIXME: Create a new Components and map the links with props methods */}
-                  {/* lg='2' */}
-                  <Col lg='2'>
-                     {/* footer_quick_links */}
-                     <div className={classes.footer_quick_links}>
-                        {/* classes.quick_link_title */}
-                        <h4 className={classes.quick_link_title}>Useful Links</h4>
-                        {/* ListGroup */}
-                        <ListGroup className="mb-3">
-                           {/* Shop */}
-                           <ListGroupItem className="ps-0 border-0">
-                              <Link to='/shop'>Shop</Link>
-                           </ListGroupItem>
-                           {/* Cart */}
-                           <ListGroupItem className="ps-0 border-0">
-                              <Link to='/cart'>Cart</Link>
-                           </ListGroupItem>
-                           {/* Login */}
-                           <ListGroupItem className="ps-0 border-0">
-                              <Link to='/login'>Login</Link>
-                           </ListGroupItem>
-                           {/* Privacy Policy */}
-                           <ListGroupItem className="ps-0 border-0">
-                              <Link to='#'>Privacy Policy</Link>
-                           </ListGroupItem>                           
-                        </ListGroup>
-                     </div>
-                  </Col>
-                  {/* //FIXME: Create a new Components and map the links with props methods */}
-                  {/* lg='3' */}
-                  <Col lg='3'>
-                     {/* footer_quick_links */}
-                     <div className={classes.footer_quick_links}>
-                        {/* classes.quick_link_title */}
-                        <h4 className={classes.quick_link_title}>Contact</h4>
-                        {/* ListGroup */}
-                        <ListGroup className={classes.footer_contacts}>
-                           {/* Location */}
-                           <ListGroupItem>
-                              <span><i className="ri-map-pin-line"></i></span>
-                              <p className="ps-1">123 Milan, Italy</p>
-                           </ListGroupItem>
-                           {/* Phone Contact */}
-                           <ListGroupItem>
-                              <span><i className="ri-phone-line"></i></span>
-                              <p className="ps-1">+0391234567</p>
-                           </ListGroupItem>
-                           {/* Email Contact */}
-                           <ListGroupItem>
-                              <span><i className="ri-mail-line"></i></span>
-                              <p className="ps-1">example@email.com</p>
-                           </ListGroupItem>                         
-                        </ListGroup>
-                     </div>
-                  </Col>                                     
+                  {/* Passing Data through props */}
+                  <CategoriesLinks data={category} />
+                  <UsefulFooterLinks data={usefulLinks} />
+                  <ContactsLinks data={contacts} />                                   
                </Row>
             </Container>
          </footer>

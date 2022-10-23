@@ -5,7 +5,6 @@ import classnames from 'classnames'; // Needed to passing classes via props
 const SectionTitle = (props) => {
     // Destructuring of Props
     const {title, className} = props
-    console.log(className);
     return (
         <Fragment >
             {/* Col lg=12 */}
