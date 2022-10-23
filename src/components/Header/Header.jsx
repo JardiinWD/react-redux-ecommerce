@@ -1,4 +1,4 @@
-import React from "react"; // React import
+import React, {useRef, useEffect} from "react"; // React import
 import { NavLink } from "react-router-dom"; // Navlink' import
 import classes from "./Header.module.scss"; // Header' stylesheet
 import { Container, Row } from "reactstrap"; // Import components from Reactstrap
@@ -6,30 +6,52 @@ import Logo from "../UI/Logo"; // Import logo component
 import userIcon from "../../assets/images/user-icon.png"; // Import Icon user img
 import {motion} from "framer-motion"
 
+// Navlinks Array with dynamic path / key
+const nav_links = [
+   {
+      path: "home",
+      display: "Home",
+      id: "home",
+   },
+   {
+      path: "shop",
+      display: "Shop",
+      id: "shop",
+   },
+   {
+      path: "cart",
+      display: "Cart",
+      id: "cart",
+   },
+];
 
 const Header = () => {
-   // Navlinks Array with dynamic path / key
-   const nav_links = [
-      {
-         path: "home",
-         display: "Home",
-         id: "home",
-      },
-      {
-         path: "shop",
-         display: "Shop",
-         id: "shop",
-      },
-      {
-         path: "cart",
-         display: "Cart",
-         id: "cart",
-      },
-   ];
+   // useRef for the header
+   const headerRef = useRef(null)
+   const stickyHeaderFn = () => {
+      // Reacting to scroll event
+      window.addEventListener('scroll', () => {
+         // Statemente for my useRef declaration
+         if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            // Assigned the new class to headerRef
+            headerRef.current.classList.add('sticky_header')
+         } else {
+            // Removed the new class to headerRef
+            headerRef.current.classList.remove('sticky_header')
+         }
+      })
+   }
+
+   useEffect(() => {
+      // Invoke my stickyHeaderFn fn
+      stickyHeaderFn()
+      // Returned a cleanup fn. Removed the eventlistener to scroll
+      return () => window.removeEventListener('scroll', stickyHeaderFn)
+   }, [headerRef])
 
    return (
       /* header */
-      <div className={classes.header}>
+      <header className={classes.header} ref={headerRef}>
          {/* Container */}
          <Container>
             {/* Row */}
@@ -72,18 +94,18 @@ const Header = () => {
                      <span>
                         <motion.img whileTap={{scale:1.2}} src={userIcon} alt="User Icon" />
                      </span>
-                  </div>
-                  {/* classes.mobile_menu */}
-                  <div className={classes.mobile_menu}>
-                     <span>
-                        {/* ri-menu-line */}
-                        <i className="ri-menu-line"></i>
-                     </span>
+                     {/* classes.mobile_menu */}
+                     <div className={classes.mobile_menu}>
+                        <span>
+                           {/* ri-menu-line */}
+                           <i className="ri-menu-line"></i>
+                        </span>
+                     </div>
                   </div>
                </div>
             </Row>
          </Container>
-      </div>
+      </header>
    );
 };
 

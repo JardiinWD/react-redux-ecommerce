@@ -8,7 +8,7 @@ const SectionTitle = (props) => {
     return (
         <Fragment >
             {/* Col lg=12 */}
-            <Col lg='12' className={classnames(props.className)}>
+            <Col lg='12' className={classnames(className)}>
                 {/* classes.section_title */}
                 <h2>{title}</h2>
             </Col>
