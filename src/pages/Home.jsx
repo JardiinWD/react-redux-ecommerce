@@ -10,6 +10,7 @@ import heroImg from '../assets/images/hero-img.png' // Hero Image
 import Services from "../services/Services";
 import ProductList from "../components/UI/ProductList";
 import Clock from "../components/UI/Clock";
+import SectionTitle from "../components/UI/SectionTitle";
 //////
 // Data import //
 import products from '../assets/data/products'
@@ -20,8 +21,11 @@ const Home = () => {
    const year = new Date().getFullYear()
    ///////
    // useState //
+   //FIXME: Think about the useReducer in this case
    const [trendingData, setTrendingData] = useState([])
    const [bestSalesData, setBestSalesData] = useState([])
+   const [mobileProducts, setMobileProducts] = useState([])
+   const [wirelessProducts, setWirelessProducts] = useState([])
    // console.log(trendingData, bestSalesData);
 
    ///////
@@ -31,10 +35,19 @@ const Home = () => {
       const filteredTrendingData = products.filter(item => item.category === 'chair')
       // Verify the products filtered by the best sales
       const filteredbestSales = products.filter(item => item.category === 'sofa')
+      // Verify the products filtered by the Mobile products
+      const filteredMobileProducts = products.filter(item => item.category === 'mobile')      
+      // Verify the products filtered by the Wireless products
+      const filteredWirelessProducts = products.filter(item => item.category === 'wireless')        
+
       // Setting state of Data on filteredTrendingData
       setTrendingData(filteredTrendingData)
       // Setting state of data on filteredbestSales
       setBestSalesData(filteredbestSales)
+      // Setting state of data on filteredMobileProducts
+      setMobileProducts(filteredMobileProducts)
+      // Setting state of data on filteredWirelessProducts
+      setWirelessProducts(filteredWirelessProducts)      
    }
    /* useEffect for data */
    useEffect(DataCallbackFn, [])
@@ -87,31 +100,24 @@ const Home = () => {
                <Container>
                   {/* Row */}
                   <Row>
-                     {/* Col lg=12 */}
-                     <Col lg='12' className="text-center">
-                        {/* classes.section_title */}
-                        <h2 className={classes.section_title}>Trending Products</h2>
-                     </Col>
-                     {/* ProductList */}
+                     <SectionTitle title='Trending Products' />
                      {/* Passing data through Props */}
                      {/* At the moment the current state of data is filtered with the keyword Chair */}
+                     {/* ProductList */}
                      <ProductList data={trendingData} />
                   </Row>
                </Container>
             </section>
             {/* classes.best_sales */}
             <section className={classes.best_sales}>
+               {/* Container */}
                <Container>
                   {/* Row */}
                   <Row>
-                     {/* Col lg=12 */}
-                     <Col lg='12' className="text-center">
-                        {/* classes.section_title */}
-                        <h2 className={classes.section_title}>Best Sales</h2>
-                     </Col>
+                     <SectionTitle title='Best Sales' />
                      {/* ProductList */}
                      {/* Passing data through Props */}
-                     {/* At the moment the current state of data is filtered with the keyword Chair */}
+                     {/* At the moment the current state of data is filtered with the keyword Best sales */}
                      <ProductList data={bestSalesData} />
                   </Row>
                </Container>
@@ -140,6 +146,21 @@ const Home = () => {
                      <Col lg='6' md='6' className="text-end">
                         <img src={counterImg} alt="" />
                      </Col>
+                  </Row>
+               </Container>
+            </section>
+            {/* classes.new_arrivals */}
+            <section className={classes.new_arrivals}>
+               <Container >
+                  <Row>
+                     {/* SectionTitle */}
+                     <SectionTitle title='New Arrivals' />
+                     {/* Passing data through Props */}
+                     {/* At the moment the current state of data is filtered with the Mobile products / Wireless */}
+                     {/* ProductList */}
+                     <ProductList data={mobileProducts} />
+                     {/* ProductList */}
+                     <ProductList data={wirelessProducts} />
                   </Row>
                </Container>
             </section>
