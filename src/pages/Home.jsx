@@ -17,7 +17,7 @@ import products from '../assets/data/products'
 import counterImg from '../assets/images/counter-timer-img.png'
 
 const Home = () => {
-   // Const year
+   // Get the full year
    const year = new Date().getFullYear()
    ///////
    // useState //
@@ -26,6 +26,7 @@ const Home = () => {
    const [bestSalesData, setBestSalesData] = useState([])
    const [mobileProducts, setMobileProducts] = useState([])
    const [wirelessProducts, setWirelessProducts] = useState([])
+   const [popularProducts, setPopularProducts] = useState([])
    // console.log(trendingData, bestSalesData);
 
    ///////
@@ -38,7 +39,9 @@ const Home = () => {
       // Verify the products filtered by the Mobile products
       const filteredMobileProducts = products.filter(item => item.category === 'mobile')      
       // Verify the products filtered by the Wireless products
-      const filteredWirelessProducts = products.filter(item => item.category === 'wireless')        
+      const filteredWirelessProducts = products.filter(item => item.category === 'wireless')
+      // Verify the products filtered by the Wireless products
+      const filteredPopularProducts = products.filter(item => item.category === 'watch')              
 
       // Setting state of Data on filteredTrendingData
       setTrendingData(filteredTrendingData)
@@ -48,6 +51,8 @@ const Home = () => {
       setMobileProducts(filteredMobileProducts)
       // Setting state of data on filteredWirelessProducts
       setWirelessProducts(filteredWirelessProducts)      
+      // Setting state of data on filteredWirelessProducts
+      setPopularProducts(filteredPopularProducts)            
    }
    /* useEffect for data */
    useEffect(DataCallbackFn, [])
@@ -100,7 +105,7 @@ const Home = () => {
                <Container>
                   {/* Row */}
                   <Row>
-                     <SectionTitle title='Trending Products' />
+                     <SectionTitle className="text-center mb-1" title='Trending Products' />
                      {/* Passing data through Props */}
                      {/* At the moment the current state of data is filtered with the keyword Chair */}
                      {/* ProductList */}
@@ -114,7 +119,7 @@ const Home = () => {
                <Container>
                   {/* Row */}
                   <Row>
-                     <SectionTitle title='Best Sales' />
+                     <SectionTitle className="text-center mb-1" title='Best Sales' />
                      {/* ProductList */}
                      {/* Passing data through Props */}
                      {/* At the moment the current state of data is filtered with the keyword Best sales */}
@@ -154,13 +159,28 @@ const Home = () => {
                <Container >
                   <Row>
                      {/* SectionTitle */}
-                     <SectionTitle title='New Arrivals' />
+                     <SectionTitle className="text-center mb-1" title='New Arrivals' />
                      {/* Passing data through Props */}
                      {/* At the moment the current state of data is filtered with the Mobile products / Wireless */}
                      {/* ProductList */}
                      <ProductList data={mobileProducts} />
                      {/* ProductList */}
                      <ProductList data={wirelessProducts} />
+                  </Row>
+               </Container>
+            </section>
+            {/* classes.new_arrivals */}
+            <section className={classes.popular_category}>
+               {/* Container */}
+               <Container >
+                  {/* Row */}
+                  <Row> 
+                     {/* SectionTitle */}
+                     <SectionTitle className="text-center mb-4" title='Popular in Category' />
+                     {/* Passing data through Props */}
+                     {/* At the moment the current state of data is filtered with Popular keyword */}
+                     {/* ProductList */}
+                     <ProductList data={popularProducts} />                     
                   </Row>
                </Container>
             </section>
