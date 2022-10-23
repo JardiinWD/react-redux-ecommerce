@@ -1,0 +1,53 @@
+// Variables goes here
+
+
+.footer {
+    padding-top: 60px;
+    padding-bottom: 30px;
+    background-color: var(--primary-color);
+    /* footer_text */
+    .footer_text {
+        margin-top: 1.75rem;
+        line-height: 30px;
+        color: rgba(255,255,255,0.5);
+    }
+    /* footer_quick_links */
+    .footer_quick_links {
+        /* quick_link_title */
+        .quick_link_title {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        /* ListGroupItem */
+        & ul > li {
+            background: transparent !important;
+            /* Link */
+            a {
+                color: rgba(255,255,255,0.5);
+            }
+        }
+        /* Span */
+        span i {
+            color: rgba(255,255,255,0.5);
+            font-size: 1.2rem;
+        }
+        /* p */
+        p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+    }
+    /* Footer_contacts */
+    .footer_contacts {
+        margin-bottom: 1.5rem;
+        /* ListGroupItem */
+        & li {
+            display: flex;
+            align-items: center;
+            padding-left: 0;
+            border: 0px solid;
+            color: rgba(255,255,255,0.5);
+        }
+    }
+}

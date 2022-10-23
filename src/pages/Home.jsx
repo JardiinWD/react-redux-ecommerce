@@ -176,7 +176,7 @@ const Home = () => {
                   {/* Row */}
                   <Row> 
                      {/* SectionTitle */}
-                     <SectionTitle className="text-center mb-4" title='Popular in Category' />
+                     <SectionTitle className="text-center mb-5" title='Popular in Category' />
                      {/* Passing data through Props */}
                      {/* At the moment the current state of data is filtered with Popular keyword */}
                      {/* ProductList */}

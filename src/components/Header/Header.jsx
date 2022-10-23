@@ -2,8 +2,8 @@ import React from "react"; // React import
 import { NavLink } from "react-router-dom"; // Navlink' import
 import classes from "./Header.module.scss"; // Header' stylesheet
 import { Container, Row } from "reactstrap"; // Import components from Reactstrap
-import logo from "../../assets/images/eco-logo.png"; // Import Logo
-import userIcon from "../../assets/images/user-icon.png"; // Import Logo
+import Logo from "../UI/Logo"; // Import logo component
+import userIcon from "../../assets/images/user-icon.png"; // Import Icon user img
 import {motion} from "framer-motion"
 
 
@@ -36,11 +36,8 @@ const Header = () => {
             <Row>
                {/* classes.nav_wrapper */}
                <div className={classes.nav_wrapper}>
-                  {/* classes.logo */}
-                  <div className={classes.logo}>
-                     <img src={logo} alt="Logo" />
-                     <h1>E-commerce</h1>
-                  </div>
+                  {/* Logo Component */}
+                  <Logo />
                   {/* classes.navigation */}
                   <div className={classes.navigation}>
                      {/* classes.menu */}

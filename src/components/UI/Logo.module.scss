@@ -1,0 +1,19 @@
+$logo_img_width: 1.5rem;
+$logo_img_height: 1.5rem;
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    /* Img */
+    img {
+       width: $logo_img_width;
+       height: $logo_img_height;
+    }
+    h1 {
+       font-size: 1.2rem;
+       font-weight: 700;
+       color: var(--primary-color);
+    }
+}  

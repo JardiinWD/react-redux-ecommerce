@@ -77,7 +77,7 @@ const products = [
 
   {
     id: "03",
-    productName: "Amazon Brand Modern Sofa",
+    productName: "Amazon Brand Modern",
     imgUrl: productImg03,
     category: "sofa",
     price: 173,
