@@ -26,8 +26,12 @@ const nav_links = [
 ];
 
 const Header = () => {
-   // useRef for the header
-   const headerRef = useRef(null)
+   //////////
+   // useRef //
+   const headerRef = useRef(null) // useRef for the header
+   const menuRef = useRef(null) // useRef for the menu button
+
+   // Callback for useEffect //
    const stickyHeaderFn = () => {
       // Reacting to scroll event
       window.addEventListener('scroll', () => {
@@ -41,13 +45,19 @@ const Header = () => {
          }
       })
    }
-
+   //////////
+   // useEffect //
    useEffect(() => {
       // Invoke my stickyHeaderFn fn
       stickyHeaderFn()
       // Returned a cleanup fn. Removed the eventlistener to scroll
       return () => window.removeEventListener('scroll', stickyHeaderFn)
    }, [headerRef])
+
+   // Menu Toggle
+   const menuToggle = () => {
+      menuRef.current.classList.toggle('.active_menu')
+   }
 
    return (
       /* header */
@@ -61,7 +71,7 @@ const Header = () => {
                   {/* Logo Component */}
                   <Logo />
                   {/* classes.navigation */}
-                  <div className={classes.navigation}>
+                  <div className={classes.navigation} ref={menuRef} onClick={menuToggle}>
                      {/* classes.menu */}
                      <ul className={classes.menu}>
                         {/* Map operation for array of links_item */}
@@ -96,7 +106,7 @@ const Header = () => {
                      </span>
                      {/* classes.mobile_menu */}
                      <div className={classes.mobile_menu}>
-                        <span>
+                        <span onClick={menuToggle}>
                            {/* ri-menu-line */}
                            <i className="ri-menu-line"></i>
                         </span>

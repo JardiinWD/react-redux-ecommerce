@@ -52,7 +52,7 @@ const Clock = () => {
     countDown()
   }
   // useEffect declaration with his callback
-  useEffect(clockCountDownCallbackFn, [])
+  useEffect(clockCountDownCallbackFn)
 
 
   // Return Fragment

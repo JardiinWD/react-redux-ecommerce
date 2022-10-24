@@ -12,7 +12,7 @@ const Services = () => {
             {/* Container */}
             <Container >
                 {/* Row */}
-                <Row >
+                <Row>
                     {/* Service Data map method */}
                     {
                         serviceData.map((service, index) => {

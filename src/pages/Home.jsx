@@ -91,7 +91,7 @@ const Home = () => {
                      <Col lg='6' md='6'>
                         {/*  */}
                         <div className="hero_img">
-                           <img src={heroImg} alt="Hero Image" />
+                           <img src={heroImg} alt="Hero" />
                         </div>
                      </Col>
                   </Row>
@@ -133,8 +133,8 @@ const Home = () => {
                <Container >
                   {/* Row */}
                   <Row >
-                     {/* Col lg='6' md='6' */}
-                     <Col lg='6' md='6'>
+                     {/* Col lg='6' md='12' */}
+                     <Col lg='6' md='12' className={classes.countdown_col}>
                         {/* clock_top_content */}
                         <div className={classes.clock_top_content}>
                            <h4>Limited Offer</h4>
@@ -147,8 +147,8 @@ const Home = () => {
                            <Link to='/shop'>Visit Store</Link>
                         </motion.button>
                      </Col>
-                     {/* Col lg='6' md='6' */}
-                     <Col lg='6' md='6' className="text-end">
+                     {/* Col lg='6' md='12' */}
+                     <Col lg='6' md='12' className="text-end">
                         <img src={counterImg} alt="" />
                      </Col>
                   </Row>

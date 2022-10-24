@@ -38,3 +38,45 @@ $service_item_h3_fs : 1.1rem;
         }
     }
 }
+
+/* max-width: 992px */
+@media only screen and (max-width: 992px) {
+    .services {
+        /* service_item */
+        .service_item {
+            padding: 10px;
+            margin-bottom: 1.5rem;
+            /* span i */
+            span i {
+                font-size: 1.8rem;
+                padding: 5px;
+            }
+            h3 {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .services {
+        /* service_item */
+        .service_item {
+            margin-bottom: 1.5rem;
+            /* span i */
+            span i {
+                font-size: 1.5rem;
+                padding: 5px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .services {
+        /* service_item */
+        .service_item {
+            padding: 20px;
+        }
+    }
+}
