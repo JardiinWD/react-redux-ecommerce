@@ -3,9 +3,29 @@ import classes from './ProductCard.module.scss' // Stylesheet
 import {motion} from 'framer-motion' // Import Framer-Motion for img/icon
 import { Col } from 'reactstrap' // Import column from Reactstrap
 import { Link } from 'react-router-dom'
+//////
+import { useDispatch } from 'react-redux'
+import { cartActions } from '../../redux/slices/cartSlice'
+
+
 
 const ProductCard = ({item}) => {
-  return (
+
+  // I have to attached my useDispatch hook to a new Variable
+  const dispatch = useDispatch()
+
+  // My AddToCart function, attached to button
+  const addToCartHandler = () => {
+    dispatch(cartActions.addItem({
+        id: item.id,
+        productName: item.productName, // ProductName 
+        image: item.imgUrl, // Product Image
+        price: item.price, // Product Price   
+    }))
+    alert('Product added to the cart')
+  }  
+  
+    return (
     /* lg='3' md='4' */
     <Col key={item.id} lg='3' md='4' className='mb-2'>
         {/* classes.product_item */ }
@@ -27,7 +47,7 @@ const ProductCard = ({item}) => {
                 {/* price */}
                 <span className={classes.product_card_price}>${item.price}</span>
                 {/* ri-add-line */}
-                <motion.span whileTap={{scale: 1.2}}> 
+                <motion.span whileTap={{scale: 1.2}} onClick={addToCartHandler}> 
                     <i className="ri-add-line"></i>
                 </motion.span>
             </div>

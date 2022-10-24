@@ -11,7 +11,7 @@ const UsefulFooterLinks = (props) => {
   
     return (
     <Fragment>
-        <Col lg='2'>
+        <Col lg='2' md='3'>
             {/* footer_quick_links */}
             <div className={classes.footer_quick_links}>
                 {/* classes.quick_link_title */}

@@ -9,7 +9,7 @@ const CategoriesLinks = (props) => {
 
     return (
         <Fragment>
-            <Col lg='3'>
+            <Col lg='3' md='3'>
                 {/* footer_quick_links */}
                 <div className={classes.footer_quick_links}>
                     {/* classes.quick_link_title */}
