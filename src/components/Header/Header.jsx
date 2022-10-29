@@ -5,6 +5,8 @@ import { Container, Row } from "reactstrap"; // Import components from Reactstra
 import Logo from "../UI/Logo"; // Import logo component
 import userIcon from "../../assets/images/user-icon.png"; // Import Icon user img
 import {motion} from "framer-motion"
+import { useSelector } from "react-redux";
+
 
 // Navlinks Array with dynamic path / key
 const nav_links = [
@@ -29,6 +31,7 @@ const Header = () => {
    //////////
    // useRef //
    const headerRef = useRef(null) // useRef for the header
+   const totalQuantity = useSelector(state => state.cart.totalQuantity)
    const menuRef = useRef(null) // useRef for the menu button
 
    // Callback for useEffect //
@@ -98,7 +101,7 @@ const Header = () => {
                      {/* ri-shopping-bag-line */}
                      <span className={classes.cart_icon}>
                         <i className="ri-shopping-bag-line"></i>
-                        <span className={classes.badge}>1</span>
+                        <span className={classes.badge}>{totalQuantity}</span>
                      </span>
                      {/* Altered img by Motion library */}
                      <span>
