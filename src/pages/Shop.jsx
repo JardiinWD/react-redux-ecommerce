@@ -29,7 +29,7 @@ const Shop = () => {
    const searchInputHandler = (e) => {
       // Find out what the user write in the field
       const searchTerm = e.target.value
-      // Filtered products based on what user Search
+      // Sorting products  based on what user Search
       const searchedProducts = products.filter(item => item.productName.toLowerCase().includes(searchTerm.toLowerCase()))
       // Update the current state
       setProductsData(searchedProducts)
