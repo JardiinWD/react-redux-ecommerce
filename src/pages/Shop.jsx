@@ -89,8 +89,8 @@ const Shop = () => {
             <Container>
                {/* Row */}
                <Row>
-                  {/* lg='3' md='3' */}
-                  <Col lg='3' md='3'>
+                  {/* lg='3' md='6' */}
+                  <Col lg='3' md='6'>
                      {/* filter_widget */}
                      <div className="filter_widget">
                         <select onChange={optionHandler}>
@@ -103,8 +103,8 @@ const Shop = () => {
                         </select>
                      </div>
                   </Col>
-                  {/* lg='3' md='3' */}
-                  <Col lg='3' md='3'>
+                  {/* lg='3' md='6' */}
+                  <Col lg='3' md='6' className="text-end">
                      {/* filter_widget */}
                      <div className="filter_widget">
                         <select>
@@ -114,8 +114,8 @@ const Shop = () => {
                         </select>
                      </div>
                   </Col>
-                  {/* lg='6' md='6' */}
-                  <Col lg='6' md='6'>
+                  {/* lg='6' md='12' */}
+                  <Col lg='6' md='12'>
                      {/* search_box */}
                      <div className="search_box">
                         <input type="text" placeholder="Search" onChange={searchInputHandler} />
