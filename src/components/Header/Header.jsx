@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from "react"; // React import
-import { NavLink } from "react-router-dom"; // Navlink' import
+import { NavLink, useNavigate} from "react-router-dom"; // Navlink' import
 import classes from "./Header.module.scss"; // Header' stylesheet
 import { Container, Row } from "reactstrap"; // Import components from Reactstrap
 import Logo from "../UI/Logo"; // Import logo component
@@ -62,6 +62,16 @@ const Header = () => {
       menuRef.current.classList.toggle('.active_menu')
    }
 
+   // Save on a variable the useNavigate tool
+   const navigate = useNavigate()
+
+   // Navigate to Cart method
+   const navigateToCart = () => {
+      // use the navigate variable and add the event on click
+      navigate('/cart')
+   }
+
+
    return (
       /* header */
       <header className={classes.header} ref={headerRef}>
@@ -99,7 +109,7 @@ const Header = () => {
                         <span className={classes.badge}>1</span>
                      </span>
                      {/* ri-shopping-bag-line */}
-                     <span className={classes.cart_icon}>
+                     <span className={classes.cart_icon} onClick={navigateToCart}>
                         <i className="ri-shopping-bag-line"></i>
                         <span className={classes.badge}>{totalQuantity}</span>
                      </span>

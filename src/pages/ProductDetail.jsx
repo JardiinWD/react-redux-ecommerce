@@ -47,13 +47,17 @@ const ProductDetail = () => {
       const reviewUserName = reviewUser.current.value
       // Save on a variable the current value of reviewMsg
       const reviewUserMsg = reviewMsg.current.value
-      // Create the review Object
-      const reviewObj = {
-         userName: reviewUserName,
-         text: reviewUserMsg,
-         rating,
+      if (reviewUserName.length === 0 || reviewUserMsg.length === 0) return
+      if (reviewUserName.length !== 0 && reviewUserMsg.length !== 0) {
+         // Create the review Object
+         const reviewObj = {
+            userName: reviewUserName,
+            text: reviewUserMsg,
+            rating,
+         }
+         toast.success('Review Submitted')
       }
-      toast.success('Review Submitted')
+
       // Clear all fields after the review was sent
       reviewUser.current.value = ''
       reviewMsg.current.value = ''
@@ -179,7 +183,7 @@ const ProductDetail = () => {
                                     <form action="" onSubmit={submitHandler}>
                                        {/* form_group */}
                                        <div className="form_group">
-                                          <input type="text" placeholder="Enter Name" ref={reviewUser} />
+                                          <input type="text" placeholder="Enter Name" ref={reviewUser} required />
                                        </div>
                                        {/* form_group */}
                                        <div className="form_group d-flex align-items-center gap-5 rating_group">
@@ -191,7 +195,7 @@ const ProductDetail = () => {
                                        </div>
                                        {/* form_group */}
                                        <div className="form_group">
-                                          <textarea rows={4} type="text" placeholder="Review Message" ref={reviewMsg} />
+                                          <textarea rows={4} type="text" placeholder="Review Message" ref={reviewMsg} required />
                                        </div>   
                                        {/* buy_btn */}
                                        <motion.button whileTap={{scale:1.2}}type="submit" className="buy_btn">

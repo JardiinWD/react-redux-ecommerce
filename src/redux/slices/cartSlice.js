@@ -42,11 +42,28 @@ const cartSlice = createSlice({
             // Manging state for the total amount
             state.totalAmount = state.cartItems.reduce((total, item) => {
                 return total + Number(item.price) * Number(item.quantity)
-            })
+            }, 0)
             // Watched to the console the result
             // console.log(state.totalQuantity);
             // console.log(state.cartItems);
             // console.log(newItem)
+        },
+        deleteItem: (state, action) => {
+            // Create the id variable and give it the action.payload
+            const id = action.payload
+            // Find out the existing item with the find method where item.id is equal as variable id
+            const existingItem = state.cartItems.find(item => item.id === id)
+            // If the existingItem is true
+            if (existingItem) {
+                // Filter the cartItems and find out where item.id is different from variable id
+                state.cartItems = state.cartItems.filter(item => item.id !== id)
+                // Update the totalQuantity, removing the existing Item quantity
+                state.totalQuantity = state.totalQuantity - existingItem.quantity
+            }
+            // Manging state for the total amount
+            state.totalAmount = state.cartItems.reduce((total, item) => {
+                return total + Number(item.price) * Number(item.quantity)
+            }, 0)
         }
     }
 });
