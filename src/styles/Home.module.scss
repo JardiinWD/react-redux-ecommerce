@@ -67,7 +67,7 @@
     ////////
     // Variable
     $timer_count_bg : var(--primary-color);
-    $timer_count_height : 300px;
+    $timer_count_height : 400px;
     $ctc_h4_c :  #fff;
     $ctc_h4_fs :  1.2rem;
     $ctc_h4_fw :  500;  
@@ -83,6 +83,8 @@
     ////////
     background: $timer_count_bg;
     height: $timer_count_height;
+    display: flex;
+    align-items: center;
     /* clock_top_content */
     .clock_top_content {
         /* h4 */

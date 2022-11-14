@@ -74,7 +74,9 @@ const Cart = () => {
                         </h6>
                      </div>
                      {/* Taxes text */}
-                     <p className="fs-6 mt-2">Taxes and shipping will calculate in checkout</p>
+                     <p className="fs-6 mt-2">
+                        Taxes and shipping will calculate in checkout
+                     </p>
                      {/* buy_btn */}
                      <div>
                         {/* Checkout */}

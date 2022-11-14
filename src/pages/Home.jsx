@@ -132,7 +132,7 @@ const Home = () => {
                {/* Container */}
                <Container >
                   {/* Row */}
-                  <Row >
+                  <Row className="align-items-center">
                      {/* Col lg='6' md='12' */}
                      <Col lg='6' md='12' className={classes.countdown_col}>
                         {/* clock_top_content */}
