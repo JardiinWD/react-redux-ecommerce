@@ -35,3 +35,22 @@
     }
 
 }
+
+/* store_btn */
+.auth_btn {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px 20px;
+    margin-top: 20px;
+    background: #fff;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    /* Link Component */
+}
+
+.auth_btn:hover {
+    color: var(--primary-color);
+}
